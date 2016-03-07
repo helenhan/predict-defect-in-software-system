@@ -2,7 +2,7 @@
 #  | prepare train data
 #  *------------------------------------------------------------------* 
  
-traindata <- read.csv('D:/study/learning material/2015winter/data5000/project/data/data.csv')
+traindata <- read.csv('/project/data/data.csv')
 
 head(traindata)
  
@@ -76,7 +76,7 @@ summary(nn)
 #  *------------------------------------------------------------------* 
 
 
-testdata <- read.csv('D:/study/learning material/2015winter/data5000/project/data/tdata.csv')
+testdata <- read.csv('/project/data/tdata.csv')
 
 y <- compute(nn,testdata[,3:5])$net.result
 
@@ -92,7 +92,7 @@ plot(y ~ testdata[,2])
 #  | test Canada data
 #  *------------------------------------------------------------------* 
 
-cadata <- read.csv('D:/study/learning material/2015winter/data5000/project/data/catest.csv')
+cadata <- read.csv('/project/data/catest.csv')
 y2 <- compute(nn,cadata[,3:5])
 out<-cbind(cadata[,1:2],y2$net.result)
 print(out)
@@ -106,7 +106,7 @@ plot(y2$net.result ~ cadata[,2:2])
 install.packages("caret", repos="http://R-Forge.R-project.org")
 library(caret)
 
-feature <- read.csv('D:/study/learning material/2015winter/data5000/project/data/feature.csv')
+feature <- read.csv('/project/data/feature.csv')
 mdrrDescr <- feature[,3:12]
 mdrrClass <- feature[,2]
 Process <- preProcess(mdrrDescr)
@@ -121,7 +121,7 @@ print(profile)
 #  *------------------------------------------------------------------*
 #  | data partition
 #  *------------------------------------------------------------------*
-data <- read.csv('D:/study/learning material/2015winter/data5000/project/data/data.csv')
+data <- read.csv('/project/data/data.csv')
 inTrain <- createDataPartition(y = data$recession,p = .75,list = FALSE)
 training <- data[ inTrain,]
 testing <- data[-inTrain,]
